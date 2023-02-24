@@ -13,7 +13,6 @@ import (
 	"github.com/briandowns/spinner"
 	"github.com/fatih/color"
 	"github.com/ido50/requests"
-	"github.com/manifoldco/promptui"
 )
 
 // Client is a structure used to continuously generate IaC code via OpenAPI/ChatGPT
@@ -75,12 +74,8 @@ func NewClient(apiKey string) *Client {
 // file or asking whether to regenerate the response.
 func (client *Client) Ask(
 	ctx context.Context,
-	prompt string,
-	shouldRetry bool,
-	shouldQuit bool,
-	outputPath string,
-) (err error) {
-	spin := spinner.New(spinner.CharSets[2],
+	prompt string) (err error) {
+    spin := spinner.New(spinner.CharSets[2],
 		100*time.Millisecond,
 		spinner.WithWriter(color.Error),
 		spinner.WithSuffix("\tGenerating code ..."))
@@ -102,59 +97,6 @@ func (client *Client) Ask(
 	killed = true
 
 	fmt.Fprintln(os.Stdout, code)
-
-	if shouldQuit {
-		return nil
-	}
-
-	if shouldRetry {
-		input := promptui.Prompt{
-			Label: "Hit [S/s] to save the file or [R/r] to retry [Q/q] to quit",
-			Validate: func(s string) error {
-				if strings.ToLower(s) != "s" && strings.ToLower(s) != "r" && strings.ToLower(s) != "q" {
-					return fmt.Errorf("Invalid input. Try again please.")
-				}
-				return nil
-			},
-		}
-
-		result, err := input.Run()
-
-		if strings.ToLower(result) == "q" {
-			// finish without saving
-			return nil
-		} else if err != nil || strings.ToLower(result) == "r" {
-			// retry once more
-			return client.Ask(ctx, prompt, shouldRetry, shouldQuit, outputPath)
-		}
-	}
-
-	if outputPath == "" {
-		input := promptui.Prompt{
-			Label: "Enter a file path",
-		}
-
-		outputPath, err = input.Run()
-		if err != nil {
-			return err
-		}
-	}
-
-	if outputPath != "-" {
-		f, err := os.Create(outputPath)
-		if err != nil {
-			return fmt.Errorf(
-				"failed creating output file %s: %w",
-				outputPath, err,
-			)
-		}
-
-		defer f.Close()
-
-		fmt.Fprintln(f, code)
-
-		fmt.Fprintf(os.Stderr, "Code saved successfully at %s\n", outputPath)
-	}
 
 	return nil
 }

@@ -1,4 +1,4 @@
-# ![AIAC](logo-header.svg#gh-light-mode-only) ![AIAC](logo-header-inverted.svg#gh-dark-mode-only)
+# ![Aiac](logo-header.svg#gh-light-mode-only) ![AIAC](logo-header-inverted.svg#gh-dark-mode-only)
 
 Artificial Intelligence
 Infrastructure-as-Code
@@ -37,39 +37,39 @@ output.
 
 ### Generate IaC
 
-- `aiac get terraform for a highly available eks`
-- `aiac get pulumi golang for an s3 with sns notification`
-- `aiac get cloudformation for a neptundb`
+- `aiac terraform for a highly available eks`
+- `aiac pulumi golang for an s3 with sns notification`
+- `aiac cloudformation for a neptundb`
 
 ### Generate Configuration Files
 
-- `aiac get dockerfile for a secured nginx`
-- `aiac get k8s manifest for a mongodb deployment`
+- `aiac dockerfile for a secured nginx`
+- `aiac k8s manifest for a mongodb deployment`
 
 ### Generate CICD Pipelines
 
-- `aiac get jenkins pipeline for building nodejs`
-- `aiac get github action that plans and applies terraform and sends a slack notification`
+- `aiac jenkins pipeline for building nodejs`
+- `aiac github action that plans and applies terraform and sends a slack notification`
 
 ### Generate Policy as Code
 
-- `aiac get opa policy that enforces readiness probe at k8s deployments`
+- `aiac opa policy that enforces readiness probe at k8s deployments`
 
 ### Generate Utilities
 
-- `aiac get python code that scans all open ports in my network`
-- `aiac get bash script that kills all active terminal sessions`
+- `aiac python code that scans all open ports in my network`
+- `aiac bash script that kills all active terminal sessions`
 
 ### Command Line Builder
 
-- `aiac get kubectl that gets ExternalIPs of all nodes`
-- `aiac get awscli that lists instances with public IP address and Name`
+- `aiac kubectl thats ExternalIPs of all nodes`
+- `aiac awscli that lists instances with public IP address and Name`
 
 ### Query Builder
 
-- `aiac get mongo query that aggregates all documents by created date`
-- `aiac get elastic query that applies a condition on a value greater than some value in aggregation`
-- `aiac get sql query that counts the appearances of each row in one table in another table based on an id column`
+- `aiac mongo query that aggregates all documents by created date`
+- `aiac elastic query that applies a condition on a value greater than some value in aggregation`
+- `aiac sql query that counts the appearances of each row in one table in another table based on an id column`
 
 ## Quick Start
 
@@ -99,24 +99,24 @@ Alternatively, clone the repository and build from source:
 By default, aiac prints the extracted code to standard output and asks if it
 should save or regenerate the code:
 
-    aiac get terraform for AWS EC2
+    aiac terraform for AWS EC2
 
 To store the resulting code to a file:
 
-    aiac -o aws_ec2.tf get terraform for AWS EC2
+    aiac -o aws_ec2.tf terraform for AWS EC2
 
 To run using `docker`:
 
     docker run \
     -it \
     -e OPENAI_API_KEY=[PUT YOUR KEY HERE] \
-    ghcr.io/gofireflyio/aiac get terraform for ec2
+    ghcr.io/gofireflyio/aiac terraform for ec2
 
 ## Example Output
 
 Command line prompt:
 
-    aiac get dockerfile for nodejs with comments
+    aiac dockerfile for nodejs with comments
 
 Output:
 
