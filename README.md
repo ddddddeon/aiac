@@ -11,7 +11,7 @@ Generator.
 * [Description](#description)
 * [Use Cases and Example Prompts](#use-cases-and-example-prompts)
     * [Generate IaC](#generate-iac)
-    * [Generate Configuration Files](#generate-configuratitons-files)
+    * [Generate Configuration Files](#generate-configuration-files)
     * [Generate CICD Pipelines](#generate-cicd-pipelines)
     * [Generate Policy as Code](#generate-policy-as-code)
     * [Generate Utilities](#generate-utilities)
