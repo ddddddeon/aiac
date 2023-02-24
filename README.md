@@ -11,7 +11,7 @@ Generator.
 * [Description](#description)
 * [Use Cases and Example Prompts](#use-cases-and-example-prompts)
     * [Generate IaC](#generate-iac)
-    * [Generate Configuration Files](#generate-configuration-files)
+    * [Generate Configuration Files](#generate-configuratitons-files)
     * [Generate CICD Pipelines](#generate-cicd-pipelines)
     * [Generate Policy as Code](#generate-policy-as-code)
     * [Generate Utilities](#generate-utilities)
@@ -62,7 +62,7 @@ output.
 
 ### Command Line Builder
 
-- `aiac kubectl thats ExternalIPs of all nodes`
+- `aiac kubectl that gets ExternalIPs of all nodes`
 - `aiac awscli that lists instances with public IP address and Name`
 
 ### Query Builder
