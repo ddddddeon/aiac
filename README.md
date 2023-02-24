@@ -1,4 +1,4 @@
-# ![Aiac](logo-header.svg#gh-light-mode-only) ![AIAC](logo-header-inverted.svg#gh-dark-mode-only)
+# ![AIAC](logo-header.svg#gh-light-mode-only) ![AIAC](logo-header-inverted.svg#gh-dark-mode-only)
 
 Artificial Intelligence
 Infrastructure-as-Code
