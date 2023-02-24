@@ -11,10 +11,6 @@ import (
 
 func main() {
     apiKey := os.Getenv("OPENAI_API_KEY")
-	if len(os.Args) == 0 {
-		os.Args = append(os.Args, "--help")
-	}
-
     client := libaiac.NewClient(apiKey)
 
 	err := client.Ask(
