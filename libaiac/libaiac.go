@@ -74,7 +74,8 @@ func NewClient(apiKey string) *Client {
 // file or asking whether to regenerate the response.
 func (client *Client) Ask(
 	ctx context.Context,
-	prompt string) (err error) {
+	prompt string,
+) (err error) {
     spin := spinner.New(spinner.CharSets[2],
 		100*time.Millisecond,
 		spinner.WithWriter(color.Error),
