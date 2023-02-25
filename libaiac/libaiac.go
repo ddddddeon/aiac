@@ -8,10 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
-	"time"
 
-	"github.com/briandowns/spinner"
-	"github.com/fatih/color"
 	"github.com/ido50/requests"
     "github.com/atotto/clipboard"
 )
@@ -77,26 +74,10 @@ func (client *Client) Ask(
 	ctx context.Context,
 	prompt string,
 ) (err error) {
-    spin := spinner.New(spinner.CharSets[2],
-		100*time.Millisecond,
-		spinner.WithWriter(color.Error),
-		spinner.WithSuffix("\tGenerating code ..."))
-	spin.Start()
-	killed := false
-
-	defer func() {
-		if !killed {
-			spin.Stop()
-		}
-	}()
-
 	code, err := client.GenerateCode(ctx, prompt)
 	if err != nil {
 		return err
 	}
-
-	spin.Stop()
-	killed = true
 
 	fmt.Fprintln(os.Stdout, code)
 
