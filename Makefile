@@ -9,7 +9,3 @@ build:
 
 install:
 	mv $(BINARY) $(BINDIR)/$(BINARY);
-
-alias:
-	ln -s $(BINDIR)/$(BINARY) $(BINDIR)/ai
-
