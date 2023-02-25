@@ -125,6 +125,7 @@ func (client *Client) GenerateCode(ctx context.Context, prompt string) (
 		JSONBody(map[string]interface{}{
 			"model":      "text-davinci-003",
 			"prompt":     prompt,
+            "temperature": 0.2,
 			"max_tokens": 4097 - len(prompt),
 		}).
 		Into(&answer).
