@@ -13,6 +13,7 @@ import (
 	"github.com/briandowns/spinner"
 	"github.com/fatih/color"
 	"github.com/ido50/requests"
+    "github.com/atotto/clipboard"
 )
 
 // Client is a structure used to continuously generate IaC code via OpenAPI/ChatGPT
@@ -98,6 +99,9 @@ func (client *Client) Ask(
 	killed = true
 
 	fmt.Fprintln(os.Stdout, code)
+
+    // Copy generated code to clipboard
+    clipboard.WriteAll(code)
 
 	return nil
 }
